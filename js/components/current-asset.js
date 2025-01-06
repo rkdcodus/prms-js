@@ -5,6 +5,7 @@ const $currentAssetInput = document.querySelector(".current-asset-input");
 const $currentAssetValue = document.querySelector(".current-asset-value");
 const $currentAssetButton = document.querySelector(".current-asset-button");
 const $addItemButton = document.querySelector(".add-item-button");
+// $를 사용하는 이유 : DOM 요소를 나타내는 변수라는 뜻으로 개발자들의 관습, jQuery 라이브러리에서 많이 사용했었음.
 
 export function initCurrentAsset() {
   renderCurrentAsset();
@@ -38,5 +39,6 @@ function addCurrentAssetEventListener() {
 
 export function renderCurrentAsset() {
   $currentAssetValue.textContent = store.currentFunds?.toLocaleString() ?? "-";
-  $currentAssetInput.value = store.curreEntFunds;
+  // ?? 문법 : 왼쪽 값이 null, undefined일 경우 오른쪽 값 반환. ||와 비슷하지만 false, 0,""은 간주하지 않음.
+  $currentAssetInput.value = store.currentFunds;
 }
